@@ -1,10 +1,9 @@
-# LineageOS_kernel_oneplus6_KernelSU
-***  
-[![build with KSU and docker](https://github.com/aoxiang1221/LineageOS_kernel_oneplus6_KernelSU/actions/workflows/build_kernel.yml/badge.svg)](https://github.com/aoxiang1221/LineageOS_kernel_oneplus6_KernelSU/actions/workflows/build_kernel.yml)  
- ***  
-基于[LineageOS_kernel_oneplus6](https://github.com/LineageOS/android_kernel_oneplus_sdm845)内核二次开发。  
-基于一加6 LineageOS 20，安卓13。  
-内核版本v4.9.337，支持KernelSU和docker。  
+## LineageOS_kernel_oneplus6_KernelSU
+
+基于[LineageOS_kernel_oneplus6](https://github.com/LineageOS/android_kernel_oneplus_sdm845)内核二次开发
+
+基于一加6 LineageOS 21，安卓14。 
+内核版本 v4.9.337，支持 KernelSU 和 docker  
 
 ### 编译：  
 1. LLVM [14.0.0](https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0)  

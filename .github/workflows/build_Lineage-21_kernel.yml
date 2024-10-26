@@ -13,20 +13,20 @@ jobs:
       
     steps:
     - name: Checkout this repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: main
         path: repo
 
     - name: Checkout kernel code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: LineageOS/android_kernel_oneplus_sdm845
         ref: lineage-21
         path: android_kernel_oneplus_sdm845
 
     - name: Checkout AnyKernel3 code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: AnyKernel3
         path: AnyKernel3
