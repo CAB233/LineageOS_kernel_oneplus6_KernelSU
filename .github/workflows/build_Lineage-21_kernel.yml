@@ -47,7 +47,7 @@ jobs:
     - name: Check KernelSU code
       run: |
         cd android_kernel_oneplus_sdm845
-        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s
+        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
 
     - name: Get version and commit
       run: |
