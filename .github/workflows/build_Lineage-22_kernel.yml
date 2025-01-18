@@ -1,4 +1,4 @@
-name: Build Lineage-22 Kernel with KernelSU
+name: Build Lineage-22.1 Kernel with KernelSU
 
 on:
   workflow_dispatch:
@@ -41,8 +41,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get upgrade
-        sudo apt-get install gcc-aarch64-linux-gnu
-        sudo apt-get install gcc-arm-linux-gnueabi
+        sudo apt-get install gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi
         sudo apt-get install binutils make python3 libssl-dev build-essential bc bison flex unzip libssl-dev ca-certificates xz-utils mkbootimg cpio device-tree-compiler git git-lfs
 
     - name: Check KernelSU code
@@ -57,7 +56,7 @@ jobs:
         echo "KSU_VERSION=$VERSION" >> $GITHUB_ENV
         echo $VERSION
 
-    - name: modify code
+    - name: Modify code
       run: |
         cd android_kernel_oneplus_sdm845
         git apply ../repo/diff/patch.diff
@@ -65,19 +64,10 @@ jobs:
         git apply ../repo/diff/selinux.diff
         cp ../repo/configs/* ./arch/arm64/configs
 
-    - name: Submit the modified file
-      run: |
-        cd android_kernel_oneplus_sdm845
-        git config --global user.name "aoxiang1222"
-        git config --global user.email "wu13355973460@gmail.com"
-        git add .
-        git commit -m "update"
-
-    - name: download clang and delete some AnyKernel3 code
+    - name: Download clang
       run: |
         wget https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
         tar xf clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-        rm -rf AnyKernel3/.git
 
     - name: Build Kernel With KernelSU
       run: |
@@ -94,5 +84,5 @@ jobs:
     - name: Upload AnyKernel3
       uses: actions/upload-artifact@v4
       with:
-        name: AnyKernel3_Lineage-22_${{ env.KSU_VERSION }}
+        name: AnyKernel3_Lineage-22.1_${{ env.KSU_VERSION }}
         path: "AnyKernel3/*"
